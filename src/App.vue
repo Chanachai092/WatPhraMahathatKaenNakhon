@@ -2,7 +2,8 @@
   <div id="app">
     <!-- Header -->
     <header>
-      <h1><span class="thai">วัดพระมหาธาตุแก่นนคร</span> <span class="eng">Wat Phra Mahathat Kaen Nakhon</span></h1>
+      <h1>วัดพระมหาธาตุแก่นนคร</h1>
+      <h1>Wat Phra Mahathat Kaen Nakhon</h1>
     </header>
 
     <!-- Navigation -->
@@ -28,59 +29,28 @@
     <main class="content-area">
       <router-view />
     </main>
+<section class="contact-map-section">
+  <div class="contact-details">
+  <h2>ติดต่อ</h2>
+  <p class="address">สำนักงานวัดพระเชตุพน (หอสมุดสมเด็จ ว.ม.ค.)</p>
+  <p class="address">2 ถนนสนามไชย แขวงพระบรมมหาราชวัง เขตพระนคร กรุงเทพมหานคร 10200</p>
+  <p class="phone">โทร (Tel): 083-057-7100</p>
+  <p class="fax">โทรสาร (Fax): 02-226-0370, 083-057-7100</p>
+  <p class="email">Email: watpho.th@gmail.com</p>
+  <p class="facebook">Facebook Page: วัดโพธิ์ ท่าเตียน Wat Pho</p>
+  <p><strong>เวลาทำการ:</strong> เปิดทุกวัน</p>
+</div>
 
+</section>
     <!-- Footer -->
     <footer class="contact-footer">
-      <h2>ข้อมูลติดต่อ</h2>
-      <ul>
-        <li><strong>ที่อยู่:</strong> วัดหนองแวง, อำเภอเมืองขอนแก่น, ขอนแก่น 40000</li>
-        <li><strong>เบอร์โทรศัพท์:</strong> 080-236-6391 </li>
-        <li><strong>Email:</strong> info@watphramahathat.com </li>
-        <li><strong>Facebook:</strong> 
-          <a href="https://www.facebook.com/wathnongwaeng.khonkaen/" target="_blank">
-            facebook.com/watphramahathat
-          </a>
-        </li>
-      </ul>
     </footer>
-
-    <!-- ✅ Contact Form + Google Map -->
-    <section class="contact-form-map">
-      <div class="form-section">
-        <h2>ติดต่อเรา</h2>
-        <form @submit.prevent="submitForm">
-          <label for="name">ชื่อ:</label>
-          <input type="text" id="name" required>
-          
-          <label for="email">อีเมล:</label>
-          <input type="email" id="email" required>
-
-          <label for="message">ข้อความ:</label>
-          <textarea id="message" rows="5" required></textarea>
-
-          <button type="submit">ส่งข้อความ</button>
-        </form>
-      </div>
-
-      <div class="map-section">
-        <h2>แผนที่</h2>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3869.9341662923763!2d102.83780427573303!3d16.433593533398616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31228b69dc1c41ef%3A0x62f1b4a3a8dce517!2z4Lia4LmJ4Liy4LiZ4LmA4LiE4LiX4Lij4Li14LiiIOC4muC4suC4l-C5gOC4reC4geC4iOC5gOC4nuC4muC4seC4hOC5jA!5e0!3m2!1sth!2sth!4v1693023216405!5m2!1sth!2sth"
-          width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-    </section>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App',
-  methods: {
-    submitForm() {
-      alert("ส่งข้อความเรียบร้อยแล้ว!");
-    }
-  }
+  name: 'App'
 }
 </script>
 
@@ -97,22 +67,25 @@ export default {
   font-family: 'Sarabun', sans-serif;
 }
 
-/* App wrapper */
 #app {
   background: linear-gradient(135deg, rgba(255, 244, 224, 0.88), rgba(243, 216, 174, 0.88)),
               url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80');
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
-  min-height: 140vh;
-  width: 106%;
+  min-height: 100vh;  /* ใช้เต็มความสูง viewport */
+  height: 100vh;      /* ให้เต็มความสูง */
+  width: 100vw;       /* ให้เต็มความกว้าง viewport */
   display: flex;
   flex-direction: column;
   align-items: center;
   color: #4b3b2b;
   padding-bottom: 10rem;
   box-sizing: border-box;
+  overflow-y: auto;   /* เลื่อนแนวตั้งได้ถ้าเนื้อหายาว */
+  overflow-x: hidden; /* ซ่อนเลื่อนขวาง */
 }
+
 
 /* Header */
 header {
@@ -126,6 +99,8 @@ header {
   box-shadow: 0 6px 20px rgba(166, 134, 68, 0.6);
   width: 100%;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+  position: relative;
+  z-index: 10;
 }
 
 header h1 {
@@ -186,10 +161,106 @@ p {
   margin: 0.5rem 0;
 }
 
-@keyframes headerGradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* Contact + Google Map Section */
+.contact-map-section {
+  background: rgba(255, 250, 240, 0.95);
+  padding: 4rem 2rem;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 3rem;
+  justify-content: center;
+  align-items: flex-start;
+  border-top: 5px solid #b47c2a;
+  color: #4b3b2b;
+  box-shadow: inset 0 0 15px rgba(180, 124, 42, 0.2);
+  font-family: 'Sarabun', sans-serif;
+  max-width: 1100px;
+  margin: 3rem auto 6rem;
+  border-radius: 20px;
+}
+
+.contact-map-section h2 {
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 700;
+  color: #6b4c23;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 3px rgba(180,124,42,0.5);
+  flex-basis: 100%;
+  text-align: center;
+  user-select: none;
+}
+
+.contact-details {
+  flex: 1 1 50%;
+  max-width: 480px;
+  font-size: clamp(17px, 2.5vw, 20px);
+  line-height: 1.7;
+  padding: 0 1.5rem;
+  border-right: 2px solid #d9af76;
+  color: #5a4220;
+  position: relative;
+  user-select: text;
+}
+
+.contact-details p {
+  margin: 1rem 0;
+  padding-left: 2.8rem;
+  position: relative;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  cursor: default;
+  letter-spacing: 0.02em;
+}
+
+.contact-details p::before {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.6rem;
+  color: #b47c2a;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-details p.address::before { content: "📍"; }
+.contact-details p.phone::before { content: "📞"; }
+.contact-details p.email::before { content: "✉️"; }
+.contact-details p.facebook::before { content: "📘"; }
+
+.contact-details p:hover {
+  color: #b47c2a;
+  text-shadow: 0 0 8px #d9af76;
+}
+.contact-details p:hover::before {
+  color: #d9af76;
+  filter: drop-shadow(0 0 3px #d9af76);
+}
+
+.map-container {
+  flex: 1 1 50%;
+  max-width: 600px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(180,124,42,0.25);
+  border: 4px solid #d9af76;
+  transition: transform 0.4s ease;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 420px;
+  border: none;
+  border-radius: 14px;
+  user-select: none;
+}
+
+.map-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 45px rgba(180,124,42,0.45);
 }
 
 /* Navigation */
@@ -254,127 +325,89 @@ p {
 /* Footer */
 .contact-footer {
   width: 100%;
-  background: linear-gradient(135deg, rgba(244,229,200,0.98), rgba(252,244,220,0.95));
-  border-top: 5px solid #b47c2a;
-  padding: 3rem 3rem;
-  box-shadow: inset 0 2px 10px rgba(0,0,0,0.08);
-  color: #4b3b2b;
-  position: relative;
-  overflow: hidden;
-  animation: fadeIn 1.2s ease;
-  text-align: center;
-}
-
-/* ลายไทย overlay */
-.contact-footer::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("https://png.pngtree.com/png-clipart/20230916/original/pngtree-golden-thai-pattern-background-png-image_12230574.png") repeat;
-  background-size: 300px;
-  opacity: 0.07;
-  pointer-events: none;
-  animation: patternMove 20s linear infinite;
-}
-
-@keyframes patternMove {
-  0% { background-position: 0 0; }
-  100% { background-position: 300px 300px; }
+  background: linear-gradient(135deg, rgba(244,229,200,0.98), rgba(252,244,220,0.85));
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  color: #604b21;
+  font-weight: 600;
+  max-width: 1100px;
+  margin: 0 auto 4rem;
+  border-radius: 20px;
+  box-shadow: inset 0 0 20px rgba(180,124,42,0.2);
+  font-family: 'Sarabun', sans-serif;
 }
 
 .contact-footer h2 {
-  margin-bottom: 2rem;
+  margin-bottom: 1.2rem;
   font-weight: 700;
+  font-size: clamp(22px, 4vw, 32px);
+  text-align: center;
   color: #6b4c23;
-  font-size: 1.8rem;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-  position: relative;
+  text-shadow: 1px 1px 3px rgba(180,124,42,0.5);
 }
 
-.contact-footer h2::after {
-  content: "";
-  display: block;
-  width: 80px;
-  height: 3px;
-  margin: 12px auto 0;
-  background: linear-gradient(to right, #b47c2a, #e6c98f, #b47c2a);
-  border-radius: 3px;
-}
-
-/* ✅ Grid Layout สำหรับข้อมูลติดต่อ */
 .contact-footer ul {
   list-style: none;
   padding-left: 0;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem 2rem;
-  max-width: 1000px;
-}
-
-.contact-footer li {
-  font-size: 1.05rem;
+  margin: 0;
+  font-size: clamp(16px, 2.8vw, 20px);
+  line-height: 1.6;
+  user-select: text;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 0.8rem;
-  padding: 0.8rem 1rem;
-  background: rgba(255, 255, 255, 0.65);
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  transition: transform 0.25s ease, background 0.25s, color 0.25s;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.contact-footer li:hover {
-  transform: translateY(-4px);
-  color: #b47c2a;
-  background: rgba(255, 255, 240, 0.9);
+.contact-footer ul li {
+  padding-left: 1.2rem;
+  position: relative;
 }
 
-.contact-footer li::before {
-  font-size: 1.2rem;
-}
-
-.contact-footer li:nth-child(1)::before { content: "📍"; }
-.contact-footer li:nth-child(2)::before { content: "☎"; }
-.contact-footer li:nth-child(3)::before { content: "✉"; }
-.contact-footer li:nth-child(4)::before { content: "📘"; }
-
-.contact-footer a {
-  color: #6b4c23;
-  font-weight: 500;
-  text-decoration: none;
-  border-bottom: 1px dotted transparent;
-  transition: all 0.3s ease;
-}
-
-.contact-footer a:hover {
-  color: #b47c2a;
-  border-bottom: 1px dotted #b47c2a;
-  text-shadow: 0 0 6px rgba(180,124,42,0.7);
-}
-
-/* fade-in */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+.contact-footer ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-  .contact-footer {
-    padding: 2rem 1.2rem;
+@media (max-width: 900px) {
+  .contact-map-section {
+    flex-direction: column;
+    padding: 3rem 1.5rem;
+    max-width: 100%;
+    border-radius: 14px;
   }
-  .contact-footer ul {
-    grid-template-columns: 1fr;
+  .contact-details {
+    max-width: 100%;
+    padding: 0 0 2rem 0;
+    border-right: none;
+    border-bottom: 2px solid #d9af76;
   }
-  .contact-footer li {
-    justify-content: center;
+  .map-container {
+    max-width: 100%;
+    height: 380px;
   }
-  .nav-buttons {
-    justify-content: flex-start;
+  .map-container iframe {
+    height: 380px;
   }
-  .nav-buttons button {
-    flex: 0 0 auto;
+}
+
+/* Animation for header */
+@keyframes headerGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 </style>
