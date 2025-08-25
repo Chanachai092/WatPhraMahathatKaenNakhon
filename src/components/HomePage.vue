@@ -7,15 +7,20 @@
       ref="track"
     >
       <!-- Clone last image -->
-      <div class="slide"><img :src="images[images.length - 1]" class="temple-image" alt="clone-last" /></div>
+      <div class="slide">
+        <img :src="images[images.length - 1]" class="temple-image" alt="clone-last" />
+      </div>
       <!-- Images -->
       <div class="slide" v-for="(img, idx) in images" :key="idx">
         <img :src="img" class="temple-image" :alt="`image-${idx}`" />
       </div>
       <!-- Clone first image -->
-      <div class="slide"><img :src="images[0]" class="temple-image" alt="clone-first" /></div>
+      <div class="slide">
+        <img :src="images[0]" class="temple-image" alt="clone-first" />
+      </div>
     </div>
 
+    <!-- ✅ overlay-text ภาษาไทยแนวนอน -->
     <div class="overlay-text">
       <h2>🙏 ยินดีต้อนรับสู่เว็บไซต์วัดพระมหาธาตุแก่นนคร</h2>
     </div>
@@ -89,7 +94,7 @@ onUnmounted(() => {
 .home-page-fullscreen {
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 120vh;
   overflow: hidden;
   font-family: 'Sarabun', sans-serif;
   color: white;
@@ -117,24 +122,29 @@ onUnmounted(() => {
   pointer-events: none;
 }
 
-/* overlay */
+/* ✅ overlay-text ภาษาไทยแนวนอน */
 .overlay-text {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-align: center;
+  display: flex;                 
+  justify-content: center;
+  align-items: center;
   padding: 1rem 2rem;
   background: rgba(0, 0, 0, 0.35);
   border-radius: 15px;
   z-index: 10;
-  max-width: 90%;
+  max-width: 95%;
+  text-align: center;
+  white-space: nowrap;           /* ✅ ไม่ให้ขึ้นบรรทัดใหม่ */
+  overflow: hidden;              /* ✅ ป้องกันข้อความล้น */
 }
 
 .overlay-text h2 {
-  font-size: clamp(1.5rem, 5vw, 3rem);
+  font-size: clamp(1rem, 4vw, 2.5rem); /* ✅ ย่อ-ขยายออโต้ */
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin: 0;
   line-height: 1.4;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
 }
@@ -164,7 +174,10 @@ onUnmounted(() => {
 /* responsive */
 @media (max-width: 768px) {
   .overlay-text {
-    padding: 0.8rem 1rem;
+    padding: 0.6rem 1rem;
+  }
+  .overlay-text h2 {
+    font-size: clamp(0.8rem, 4vw, 1.8rem); /* ✅ มือถือเล็กยังย่อได้ */
   }
   .dot {
     width: 10px;

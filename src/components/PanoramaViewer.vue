@@ -15,9 +15,9 @@
 
 <style scoped>
 #viewer-wrapper {
-  max-width: 1200px; /* กำหนดขนาดสูงสุด ไม่ให้กว้างเกินไป */
+  max-width: 1700px; /* ✅ ขยายความกว้างสูงสุด */
   margin: 2rem auto;
-  padding: 2rem;
+  padding: 4rem; /* ✅ เพิ่มพื้นที่รอบๆ */
   text-align: center;
   background: linear-gradient(135deg, #c89f68 0%, #b67b42 100%);
   border-radius: 20px;
@@ -32,8 +32,8 @@
 }
 
 .title {
-  font-size: 2.4rem;
-  margin-bottom: 1.5rem;
+  font-size: 2.6rem; /* ✅ ใหญ่ขึ้นนิดหน่อย */
+  margin-bottom: 2rem;
   font-weight: 900;
   text-shadow: 2px 2px 8px rgba(60, 30, 10, 0.4);
 }
@@ -41,12 +41,12 @@
 /* ✅ ทำ responsive iframe */
 .viewer-container {
   position: relative;
-  width: 100%;
-  padding-bottom: 56.25%; /* อัตราส่วน 16:9 */
+  width: 110%;
+  padding-bottom: 150%; /* ✅ สูงขึ้นเต็มตา (สี่เหลี่ยมจัตุรัส) */
   height: 0;
   overflow: hidden;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
 .viewer-container iframe {
@@ -56,6 +56,6 @@
   width: 100%;
   height: 100%;
   border: none;
-  border-radius: 16px;
+  border-radius: 20px;
 }
 </style>

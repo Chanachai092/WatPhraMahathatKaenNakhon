@@ -201,7 +201,7 @@ th, td {
 th {
   background-color: hsl(37, 42%, 54%);
   color: white;
-  font-weight: 600;
+  font-weight: 1000;
   width: clamp(100px, 20vw, 160px);
 }
 
