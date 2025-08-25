@@ -2,6 +2,7 @@
   "name": "my-vue-project",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://connie1125.github.io/WatPhraMahathat-KaenNakhon/",
   "scripts": {
     "serve": "vue-cli-service serve --define:__VUE_PROD_HYDRATION_MISMATCH_DETAILS__=false",
     "lint": "vue-cli-service lint",
