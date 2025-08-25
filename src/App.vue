@@ -2,8 +2,7 @@
   <div id="app">
     <!-- Header -->
     <header>
-      <h1>วัดพระมหาธาตุแก่นนคร</h1>
-      <h1>Wat Phra Mahathat Kaen Nakhon</h1>
+      <h1><span class="thai">วัดพระมหาธาตุแก่นนคร</span> <span class="eng">Wat Phra Mahathat Kaen Nakhon</span></h1>
     </header>
 
     <!-- Navigation -->
@@ -44,12 +43,44 @@
         </li>
       </ul>
     </footer>
+
+    <!-- ✅ Contact Form + Google Map -->
+    <section class="contact-form-map">
+      <div class="form-section">
+        <h2>ติดต่อเรา</h2>
+        <form @submit.prevent="submitForm">
+          <label for="name">ชื่อ:</label>
+          <input type="text" id="name" required>
+          
+          <label for="email">อีเมล:</label>
+          <input type="email" id="email" required>
+
+          <label for="message">ข้อความ:</label>
+          <textarea id="message" rows="5" required></textarea>
+
+          <button type="submit">ส่งข้อความ</button>
+        </form>
+      </div>
+
+      <div class="map-section">
+        <h2>แผนที่</h2>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3869.9341662923763!2d102.83780427573303!3d16.433593533398616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31228b69dc1c41ef%3A0x62f1b4a3a8dce517!2z4Lia4LmJ4Liy4LiZ4LmA4LiE4LiX4Lij4Li14LiiIOC4muC4suC4l-C5gOC4reC4geC4iOC5gOC4nuC4muC4seC4hOC5jA!5e0!3m2!1sth!2sth!4v1693023216405!5m2!1sth!2sth"
+          width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  methods: {
+    submitForm() {
+      alert("ส่งข้อความเรียบร้อยแล้ว!");
+    }
+  }
 }
 </script>
 
