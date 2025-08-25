@@ -1,13 +1,32 @@
 <!DOCTYPE html>
-<html lang="">
-  <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="1.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>วัดพระมหาธาตุแก่นนคร</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="src/main.js"></script>
-  </body>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="1.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>วัดพระมหาธาตุแก่นนคร</title>
+
+  <!-- Vue 3 จาก CDN -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <!-- Babel (สำหรับเขียน ES6 ในเบราว์เซอร์) -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+
+  <!-- เขียน JavaScript ด้วย ES6/7 และ Vue -->
+  <script type="text/babel">
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          message: 'สวัสดีจากวัดพระมหาธาตุแก่นนคร'
+        }
+      },
+      template: `<h1>{{ message }}</h1>`
+    }).mount('#app');
+  </script>
+</body>
 </html>
