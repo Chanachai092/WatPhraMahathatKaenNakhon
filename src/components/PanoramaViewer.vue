@@ -58,7 +58,7 @@
 }
 
 /* ✅ ปรับ padding ให้เล็กลงในหน้าจอแคบ */
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   #viewer-wrapper {
     padding: 1.2rem;
   }
