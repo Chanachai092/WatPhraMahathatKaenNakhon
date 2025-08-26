@@ -15,7 +15,7 @@
 
 <style scoped>
 #viewer-wrapper {
-  max-width: 1700px; /* ✅ ขยายความกว้างสูงสุด */
+  max-width: 1100px; /* ✅ ขยายความกว้างสูงสุด */
   margin: 1rem auto;
   padding: 7rem; /* ✅ เพิ่มพื้นที่รอบๆ */
   text-align: center;
@@ -42,7 +42,7 @@
 .viewer-container {
   position: relative;
   width: 100%;
-  padding-bottom: 120%; /* ✅ สูงขึ้นเต็มตา (สี่เหลี่ยมจัตุรัส) */
+  padding-bottom: 100%; /* ✅ สูงขึ้นเต็มตา (สี่เหลี่ยมจัตุรัส) */
   height: 50;
   overflow: hidden;
   border-radius: 20px;

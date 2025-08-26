@@ -140,6 +140,7 @@ const mapSrc = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.44738
   background: linear-gradient(180deg, #fffdf6 0%, #f7f1e5 100%);
   color: #4b3825;
   width: 100%;
+  
   border-radius: 12px;
   padding: 1.2rem 1.5rem;
   overflow-x: hidden;

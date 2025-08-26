@@ -1,12 +1,12 @@
 <template>
   <div id="app">
     <!-- Header -->
-    <header>
-      <h1>
-        <span class="thai">วัดพระมหาธาตุแก่นนคร</span>
-        <span class="eng">Wat Phra Mahathat Kaen Nakhon</span>
-      </h1>
-    </header>
+   <header>
+  <h1 class="header-title">
+    <span class="thai">วัดพระมหาธาตุแก่นนคร</span>
+    <span class="eng">Wat Phra Mahathat Kaen Nakhon</span>
+  </h1>
+</header>
 
     <!-- Navigation -->
     <nav class="nav-buttons">
@@ -36,23 +36,22 @@
     <section class="contact-map-section">
       <div class="contact-details">
         <h2>ติดต่อ</h2>
-        <p>CR5M+7M4, ซอย, วัดหนองแวง, อำเภอเมืองขอนแก่น ขอนแก่น 40000 </p>
-    
-        <p>tel:0802366391</p>
-       
+        <p class="address">CR5M+7M4, ซอย, วัดหนองแวง, อำเภอเมืองขอนแก่น ขอนแก่น 40000</p>
+        <p class="address">เหมาะแก่การไหว้พระ ชมวิว และถ่ายภาพ</p>
+        <p class="phone">Tel: 080-236-6391</p>
         <p class="facebook">
-          <a href="https://www.facebook.com/watnongwaengkhonkaen" target="_blank">
+          <a href="https://www.facebook.com/watnongwaengkhonkaen" target="_blank" rel="noopener noreferrer">
             วัดหนองแวง พระอารามหลวง-วัดเหนือ
           </a>
         </p>
-        <p><strong>เวลาทำการ:</strong> เปิดทุกวัน</p>
+        <p><strong>เวลาทำการ:</strong> เปิดทุกวัน เวลา 06.00 – 18.00 น.</p>
       </div>
       <div class="map-container">
-        <!-- ใช้ iframe ของจริงจาก Google Maps -->
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.3177723167617!2d102.835437!3d16.432018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31228b9f13a5e0d3%3A0x3a0a1e6f13b4c80!2z4Lit4Liy4LiE4Liy4LiZ4LmA4LiB4Liy4Lij4Lix4Lia4LmJ4Lit4LiyIOC4hOC4tOC4meC5gOC4oeC4suC4hOC4seC5jOC4l-C4oeC5jCDguIjguLPguYDguKHguLLguIHguK3guJnguKHguKXguKLguJXguYnguJnguJnguIfguKPguJnguLHguIrguKPguKPguYnguJnguLHguJfguJnguJTguJnguJXguKPguKHguKI!5e0!3m2!1sth!2sth!4v1692956400000"
           allowfullscreen
-          loading="lazy">
+          loading="lazy"
+          title="แผนที่วัดพระมหาธาตุแก่นนคร">
         </iframe>
       </div>
     </section>
@@ -84,52 +83,60 @@ export default {
   background-position: center;
   background-attachment: fixed;
   min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   color: #4b3b2b;
-  padding-bottom: 10rem;
+  padding-bottom: 0.5rem;
   box-sizing: border-box;
 }
 
 header {
   background: linear-gradient(90deg, #a6794e, #d4af7f, #b68b4c);
+  width: 98%;
   padding: 1.5rem 1rem;
   border-radius: 0 0 25px 25px;
   color: #fff8e7;
   text-align: center;
   box-shadow: 0 6px 20px rgba(166, 134, 68, 0.6);
 }
-header h1 {
+
+.header-title {
   margin: 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  gap: 1.2rem;
-  flex-wrap: wrap;
+  gap: 0.3rem;
 }
+
 header .thai {
   font-size: clamp(26px, 6vw, 46px);
-  font-weight: 800;
+  font-weight: 1000;
 }
+
 header .eng {
-  font-size: clamp(18px, 5vw, 28px);
+  font-size: clamp(27px, 5vw, 28px);
   font-weight: 500;
   font-style: italic;
   opacity: 0.9;
 }
 
+
 .nav-buttons {
   display: flex;
   justify-content: center;
   gap: 0.8rem;
-  margin: 1.5rem 0;
+  margin: 1.5rem auto;
   flex-wrap: wrap;
+  width: 100%;
 }
 .nav-buttons button {
   padding: clamp(0.5rem, 2vw, 1rem);
   border-radius: 35px;
+  font-size: 19px;
   font-weight: 700;
+  font-family: 'Sarabun', sans-serif;
   background: linear-gradient(270deg, #6b4c23, #d9af76, #b47c2a);
   color: #fff;
   border: none;
@@ -141,7 +148,13 @@ header .eng {
 }
 .nav-buttons button.active {
   background: linear-gradient(270deg, #d9af76, #b47c2a);
-  color: #3e2f0b;
+  font-size: 19px;
+  font-family: 'Sarabun', sans-serif;
+  color: #573f07;
+}
+
+.content-area {
+  width: 100%;
 }
 
 .contact-map-section {

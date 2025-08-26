@@ -42,7 +42,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 
 const images = [
-  'https://cms.dmpcdn.com/travel/2022/12/21/b1f64700-80fa-11ed-8433-93895adf0d79_webp_original.jpg',
+  'https://pukmudmuangthai.com/wp-content/uploads/2021/02/S__7962857.jpg',
   'https://palanla.com/ckeditor/upload/files/id37/domestic_location/Pra%20Mahathat%20Kaen%20Nakhon/003.jpg',
   'https://img.wongnai.com/p/1920x0/2019/08/08/eb4865f482974a99b4165a16e0db592f.jpg',
 ]
