@@ -15,9 +15,9 @@
 
 <style scoped>
 #viewer-wrapper {
-  max-width: 1100px; /* ✅ ขยายความกว้างสูงสุด */
+  max-width: 1100px;
   margin: 1rem auto;
-  padding: 7rem; /* ✅ เพิ่มพื้นที่รอบๆ */
+  padding: clamp(1.5rem, 5vw, 4rem); /* ✅ responsive padding */
   text-align: center;
   background: linear-gradient(135deg, #c89f68 0%, #b67b42 100%);
   border-radius: 20px;
@@ -32,18 +32,16 @@
 }
 
 .title {
-  font-size: 2.6rem; /* ✅ ใหญ่ขึ้นนิดหน่อย */
+  font-size: clamp(1.8rem, 5vw, 2.6rem); /* ✅ responsive font */
   margin-bottom: 2rem;
   font-weight: 900;
   text-shadow: 2px 2px 8px rgba(60, 30, 10, 0.4);
 }
 
-/* ✅ ทำ responsive iframe */
 .viewer-container {
   position: relative;
   width: 100%;
-  padding-bottom: 100%; /* ✅ สูงขึ้นเต็มตา (สี่เหลี่ยมจัตุรัส) */
-  height: 50;
+  padding-bottom: 100%; /* สี่เหลี่ยมจัตุรัส */
   overflow: hidden;
   border-radius: 20px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
@@ -57,5 +55,12 @@
   height: 100%;
   border: none;
   border-radius: 20px;
+}
+
+/* ✅ ปรับ padding ให้เล็กลงในหน้าจอแคบ */
+@media (max-width: 600px) {
+  #viewer-wrapper {
+    padding: 1.2rem;
+  }
 }
 </style>
