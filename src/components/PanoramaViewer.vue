@@ -15,12 +15,12 @@
 
 <style scoped>
 #viewer-wrapper {
-  max-width: 1100px;
+  max-width: 1000px;
   margin: 1rem auto;
   padding: clamp(1.5rem, 5vw, 4rem); /* ✅ responsive padding */
   text-align: center;
   background: linear-gradient(135deg, #c89f68 0%, #b67b42 100%);
-  border-radius: 20px;
+  border-radius: 19px;
   box-shadow: 0 20px 40px rgba(80, 50, 20, 0.3);
   color: #fff8e7;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
