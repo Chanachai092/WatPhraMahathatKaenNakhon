@@ -14,7 +14,7 @@
     </div>
 
     <div style="text-align: center;">
-      <router-link to="/" class="back-btn">กลับหน้าแรก</router-link>
+      <router-link to="/" class="back-btn">กลับหน้าหลัก</router-link>
     </div>
   </div>
 </template>

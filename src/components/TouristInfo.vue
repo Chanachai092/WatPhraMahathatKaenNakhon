@@ -79,7 +79,9 @@
     <!-- ปุ่มกลับหน้าหลัก -->
     <div class="back-button animate-fade-up delay-3">
       <router-link to="/">
-        <button>⬅ กลับหน้าหลัก</button>
+        <button>
+          <i class="fas fa-arrow-left" style="margin-right: 0.5rem;"></i>กลับหน้าหลัก
+        </button>
       </router-link>
     </div>
   </section>
@@ -135,16 +137,18 @@ const mapSrc = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.44738
 </script>
 
 <style scoped>
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;600&family=Sarabun:wght@400;700&display=swap');
+
 .tourist-page {
   font-family: 'Sarabun', sans-serif;
   background: linear-gradient(180deg, #fffdf6 0%, #f7f1e5 100%);
   color: #4b3825;
   width: 100%;
-  
   border-radius: 12px;
   padding: 1.2rem 1.5rem;
   overflow-x: hidden;
-  font-size: clamp(0.9rem, 2.2vw, 1.1rem); /* ✅ ฟอนต์หลัก responsive */
+  font-size: clamp(0.9rem, 2.2vw, 1.1rem);
 }
 
 /* Banner */
@@ -152,17 +156,16 @@ const mapSrc = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.44738
   text-align: center;
   background: radial-gradient(circle at top, #ffe9c5, #ffddb0);
   padding: 2.5rem 5vw;
-  margin-top: 0rem;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 .title-banner h2 {
-  font-size: clamp(1.6rem, 4vw, 2.8rem); /* ✅ responsive */
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
   margin-bottom: 0.5rem;
   color: #aa5c00;
 }
 .title-banner p {
-  font-size: clamp(1rem, 2.5vw, 1.3rem); /* ✅ responsive */
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
   color: #6b4c2f;
 }
 
@@ -181,7 +184,7 @@ const mapSrc = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.44738
   border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  font-size: clamp(0.95rem, 2.2vw, 1.15rem); /* ✅ responsive */
+  font-size: clamp(0.95rem, 2.2vw, 1.15rem);
 }
 .info-card h3 {
   font-size: clamp(1.1rem, 2.8vw, 1.5rem);
@@ -201,7 +204,7 @@ const mapSrc = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.44738
 .detail-section h3 {
   margin-top: 2rem;
   color: #844c00;
-  font-size: clamp(1.2rem, 3vw, 1.6rem); /* ✅ responsive */
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
 }
 .detail-section ul li {
   font-size: clamp(0.9rem, 2.2vw, 1.1rem);
@@ -212,7 +215,7 @@ const mapSrc = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.44738
   margin-top: 1rem;
   border-collapse: collapse;
   width: 100%;
-  font-size: clamp(0.9rem, 2.2vw, 1.1rem); /* ✅ responsive */
+  font-size: clamp(0.9rem, 2.2vw, 1.1rem);
 }
 .visit-table th, .visit-table td {
   border: 1px solid #ccc;
@@ -263,20 +266,21 @@ const mapSrc = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.44738
   margin: 3rem 0 2rem;
 }
 .back-button button {
-  background: #f2a65a;
+  background: #a8621c;
   color: #fff;
   border: none;
   padding: 0.8rem 2rem;
-  font-size: clamp(1rem, 2.8vw, 1.3rem); /* ✅ responsive */
+  font-size: 18px;
   border-radius: 10px;
   cursor: pointer;
-  box-shadow: 0 6px 14px rgba(242, 166, 90, 0.6);
+  box-shadow: 0 6px 14px rgba(187, 119, 52, 0.6);
   transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
   font-weight: 600;
 }
 .back-button button:hover {
   background: #d98d42;
   box-shadow: 0 8px 20px rgba(217, 141, 66, 0.8);
+
   transform: translateY(-3px);
 }
 .back-button button:focus {

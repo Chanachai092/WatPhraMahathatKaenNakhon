@@ -68,9 +68,14 @@
         <tr><th>สิ่งสำคัญ</th><td>พระบรมสารีริกธาตุ, จิตรกรรมฝาผนัง, ประติมากรรมพญานาค</td></tr>
       </tbody>
     </table>
+
+    <!-- ✅ ปุ่มกลับหน้าหลัก -->
     <div class="back-home">
-      <button @click="$router.push('/')">🏠 กลับหน้าหลัก</button>
-        </div>
+      <button @click="$router.push('/')">
+        <i class="fas fa-arrow-left"></i>
+        กลับหน้าหลัก
+      </button>
+    </div>
   </section>
 </template>
 
@@ -80,7 +85,7 @@
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600&family=Noto+Serif+Thai:wght@400;600&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;600&family=Sarabun:wght@400;700&display=swap');
 html {
   scroll-behavior: smooth;
 }
@@ -103,7 +108,6 @@ html {
   background: linear-gradient(135deg, #fef6e7, #e9dfc7);
 }
 
-/* ===== สารบัญ ===== */
 .toc {
   margin: 1.5rem 0 2rem;
   padding: 1rem 1.5rem;
@@ -137,12 +141,11 @@ html {
   text-decoration: underline;
 }
 
-/* ===== หัวข้อ ===== */
 h1 {
   text-align: center;
   font-family: 'Sarabun', sans-serif;
   font-weight: 700;
-  font-size: clamp(1.6rem, 4vw, 2.8rem); /* ✅ responsive */
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
   color: #6b4c35;
   margin-bottom: 2rem;
   position: relative;
@@ -164,7 +167,7 @@ h2 {
   margin-bottom: 0.8rem;
   font-family: 'Sarabun', sans-serif;
   font-weight: 600;
-  font-size: clamp(1.2rem, 3vw, 1.8rem); /* ✅ responsive */
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
   color: #8c6d44;
   border-left: 5px solid #bb9457;
   padding-left: 1rem;
@@ -172,7 +175,7 @@ h2 {
 }
 
 p {
-  font-size: clamp(0.9rem, 2.2vw, 1.1rem); /* ✅ responsive */
+  font-size: clamp(0.9rem, 2.2vw, 1.1rem);
   margin-bottom: 0.8rem;
   text-indent: 1rem;
 }
@@ -181,14 +184,14 @@ ul {
   list-style-type: disc;
   padding-left: 2rem;
   margin-bottom: 1.2rem;
-  font-size: clamp(0.95rem, 2.3vw, 1.15rem); /* ✅ responsive */
+  font-size: clamp(0.95rem, 2.3vw, 1.15rem);
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 1.2rem;
-  font-size: clamp(0.9rem, 2.2vw, 1.1rem); /* ✅ responsive */
+  font-size: clamp(0.9rem, 2.2vw, 1.1rem);
   box-shadow: 0 3px 8px rgba(0,0,0,0.1);
 }
 
@@ -210,7 +213,7 @@ td {
 }
 
 .history-container p:first-letter {
-  font-size: clamp(1.1rem, 3vw, 1.4rem); /* ✅ responsive */
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
   font-weight: 200;
   float: left;
   color :#bb9457;
@@ -218,35 +221,45 @@ td {
   padding-right: 7px;
   font-family: 'Sarabun', sans-serif;
 }
+
+/* 🔁 ปุ่มกลับ */
 .back-home {
   text-align: center;
   margin-top: 2rem;
 }
 
 .back-home button {
-  background: linear-gradient(135deg, #f3c37b, #d18f4b);
+  background: linear-gradient(90deg, #a46e3e, #c28a54);
   color: white;
   font-weight: 700;
   border: none;
   padding: 0.8rem 2rem;
-  border-radius: 14px;
+  border-radius: 999px;
   cursor: pointer;
-  font-size: 1rem;
-  box-shadow: 0 6px 20px rgba(209,160,91,0.5);
+  font-size: 1.1rem;
+  box-shadow: 0 6px 20px rgba(160, 104, 48, 0.4);
   transition: all 0.35s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.back-home button i {
+  font-size: 1rem;
+  content: "←";
 }
 
 .back-home button:hover {
   transform: translateY(-4px) scale(1.05);
-  background: linear-gradient(135deg, #f6d18f, #c97f3a);
-  box-shadow: 0 10px 28px rgba(209,160,91,0.7);
+  background: linear-gradient(90deg, #b97a44, #d6975d);
+  box-shadow: 0 10px 28px rgba(160, 104, 48, 0.6);
 }
 
 .back-home button:active {
   transform: scale(0.95);
 }
 
-/* Responsive (มือถือเล็ก) */
+/* Responsive */
 @media (max-width: 600px) {
   .history-container {
     padding: 1.2rem;
@@ -255,5 +268,4 @@ td {
     width: auto;
   }
 }
-
 </style>
