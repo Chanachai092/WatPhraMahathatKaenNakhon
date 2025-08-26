@@ -16,8 +16,8 @@
 <style scoped>
 #viewer-wrapper {
   max-width: 1700px; /* ✅ ขยายความกว้างสูงสุด */
-  margin: 2rem auto;
-  padding: 4rem; /* ✅ เพิ่มพื้นที่รอบๆ */
+  margin: 1rem auto;
+  padding: 7rem; /* ✅ เพิ่มพื้นที่รอบๆ */
   text-align: center;
   background: linear-gradient(135deg, #c89f68 0%, #b67b42 100%);
   border-radius: 20px;
@@ -41,9 +41,9 @@
 /* ✅ ทำ responsive iframe */
 .viewer-container {
   position: relative;
-  width: 110%;
-  padding-bottom: 150%; /* ✅ สูงขึ้นเต็มตา (สี่เหลี่ยมจัตุรัส) */
-  height: 0;
+  width: 100%;
+  padding-bottom: 120%; /* ✅ สูงขึ้นเต็มตา (สี่เหลี่ยมจัตุรัส) */
+  height: 50;
   overflow: hidden;
   border-radius: 20px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
