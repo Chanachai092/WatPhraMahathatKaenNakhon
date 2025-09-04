@@ -69,7 +69,7 @@
       </tbody>
     </table>
     <div class="back-home">
-      <button @click="$router.push('/')">🏠 กลับหน้าหลัก</button>
+      <button @click="$router.push('/')">← กลับหน้าหลัก</button>
         </div>
   </section>
 </template>
@@ -79,7 +79,7 @@
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600&family=Noto+Serif+Thai:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@500;700&family=Sarabun:wght@400;500;600&display=swap');
 
 html {
   scroll-behavior: smooth;

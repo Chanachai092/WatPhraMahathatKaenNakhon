@@ -97,7 +97,7 @@
     <!-- ปุ่มกลับหน้าหลัก -->
     <div class="back-button animate-fade-up delay-3">
       <router-link to="/">
-        <button>⬅ กลับหน้าหลัก</button>
+        <button>← กลับหน้าหลัก</button>
       </router-link>
     </div>
   </section>
