@@ -134,7 +134,7 @@ const watList = [
 
 /* Main Title */
 h1 {
-  font-family: 'Noto Serif Thai', serif;
+  font-family: 'Sarabun', sans-serif;
   font-weight: 700;
   font-size: clamp(2rem, 5vw, 3rem);
   text-align: center;
@@ -161,7 +161,7 @@ h1 {
 
 /* Card Title */
 .wat-card h2 {
-  font-family: 'Noto Serif Thai', serif;
+  font-family: 'Sarabun', sans-serif;
   font-weight: 700;
   font-size: clamp(1.5rem, 3vw, 2rem);
   color: #bb9457;
