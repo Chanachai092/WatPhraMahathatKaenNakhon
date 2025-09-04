@@ -173,7 +173,7 @@ onMounted(() => {
   background: linear-gradient(180deg, #fffdf6 0%, #f7f1e5 100%);
   color: #4b3825;
   width: 100%;
-  border-radius: 12px;
+  border-radius: 15px;
   padding: 1.2rem 1.5rem;
   overflow-x: hidden;
   font-size: clamp(0.9rem, 2.2vw, 1.1rem);
@@ -374,9 +374,9 @@ onMounted(() => {
 }
 .slide p {
   padding: 0.8rem;
-  font-size: 1rem;
+  font-size: 1.5rem;
   background: #f2a65a;
-  color: #fff;
+  color: #ffffff;
   margin: 0;
 }
 
