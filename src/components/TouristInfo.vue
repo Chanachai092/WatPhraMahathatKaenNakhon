@@ -24,7 +24,7 @@
 
     <!-- ส่วนรายละเอียด -->
     <div class="detail-section animate-fade-up delay-2">
-      <h3>📜 {{ historyTitle }}</h3>
+      <h3> {{ historyTitle }}</h3>
       <p>{{ historyText }}</p>
 
       <h3>🛕 ไฮไลต์ที่น่าสนใจ</h3>
@@ -38,6 +38,24 @@
       <ul>
         <li v-for="(event, i) in annualEvents" :key="i">{{ event }}</li>
       </ul>
+
+      <!-- 🔥 สไลด์ภาพประเพณี -->
+      <div class="event-slider">
+        <div class="slider-track" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
+          <div v-for="(slide, i) in eventSlides" :key="i" class="slide">
+            <img :src="slide.src" :alt="slide.alt" />
+            <p>{{ slide.alt }}</p>
+          </div>
+        </div>
+        <div class="slider-dots">
+          <span
+            v-for="(dot, i) in eventSlides"
+            :key="i"
+            :class="{ active: currentSlide === i }"
+            @click="currentSlide = i"
+          ></span>
+        </div>
+      </div>
 
       <h3>📝 คำแนะนำสำหรับนักท่องเที่ยว</h3>
       <ul>
@@ -79,15 +97,15 @@
     <!-- ปุ่มกลับหน้าหลัก -->
     <div class="back-button animate-fade-up delay-3">
       <router-link to="/">
-        <button>
-          <i class="fas fa-arrow-left" style="margin-right: 0.5rem;"></i>กลับหน้าหลัก
-        </button>
+        <button>⬅ กลับหน้าหลัก</button>
       </router-link>
     </div>
   </section>
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
+
 const title = 'ท่องเที่ยววัดหนองแวง พระอารามหลวง'
 const subtitle = 'พาใจสงบในศิลป์แห่งศรัทธาและสถาปัตยกรรมอันงดงาม'
 
@@ -103,10 +121,7 @@ const infoCards = [
     ]
   }
 ]
-
-const historyTitle = 'ประวัติย่อ'
-const historyText = 'วัดหนองแวง พระอารามหลวง ตั้งอยู่ริมบึงแก่นนคร...'
-
+  
 const highlights = [
   { title: 'พระมหาธาตุแก่นนคร', desc: 'เจดีย์สูง 9 ชั้น ประดิษฐานพระบรมสารีริกธาตุ' },
   { title: 'พิพิธภัณฑ์', desc: 'จัดแสดงโบราณวัตถุและเรื่องราวเมืองขอนแก่น' },
@@ -132,14 +147,27 @@ const seasons = [
   { period: 'ต.ค.', highlight: 'งานบุญออกพรรษา' }
 ]
 
+
 const mapTitle = 'แผนที่วัดหนองแวง'
 const mapSrc = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.447384047259!2d102.82637211414045!3d16.420303788659225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31228b65f1806cf1%3A0x8c07c5f83f2c1436!2z4Lia4Lij4Li04Lip4Lix4LiZ4LmA4Lir4Lil4Liy4LiZIOC5gOC4muC4peC4sOC5iOC4p-C4sOC5geC4geC4oeC4mQ!5e0!3m2!1sth!2sth!4v1719812810212!5m2!1sth!2sth'
+
+/* 🔥 สไลด์ภาพประเพณี */
+const eventSlides = [
+  { src: 'https://old.khonkaenlink.info/home/upload/photo/news/t1Y52pWs.jpg', alt: 'งานแห่เทียนพรรษา' },
+  { src: 'https://kkdata.khonkaenlink.info/wp-content/uploads/2023/04/3B7BE8EA-9046-4253-8DBD-34FF0B574A58.jpeg', alt: 'งานสงกรานต์' },
+  { src: 'https://storage-wp.thaipost.net/2022/10/%E0%B8%82%E0%B8%AD%E0%B8%99%E0%B9%81%E0%B8%81%E0%B9%88%E0%B8%99-1.jpg', alt: 'งานบุญออกพรรษา' }
+]
+
+const currentSlide = ref(0)
+
+onMounted(() => {
+  setInterval(() => {
+    currentSlide.value = (currentSlide.value + 1) % eventSlides.length
+  }, 4000) // เปลี่ยนทุก 4 วิ
+})
 </script>
 
 <style scoped>
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;600&family=Sarabun:wght@400;700&display=swap');
-
 .tourist-page {
   font-family: 'Sarabun', sans-serif;
   background: linear-gradient(180deg, #fffdf6 0%, #f7f1e5 100%);
@@ -156,6 +184,7 @@ const mapSrc = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.44738
   text-align: center;
   background: radial-gradient(circle at top, #ffe9c5, #ffddb0);
   padding: 2.5rem 5vw;
+  margin-top: 0rem;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
@@ -227,6 +256,39 @@ const mapSrc = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.44738
   font-size: clamp(1rem, 2.5vw, 1.2rem);
 }
 
+/* Gallery */
+.gallery-section {
+  margin-top: 3rem;
+  padding: 0 5vw;
+}
+.gallery-section h3 {
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  margin-bottom: 1rem;
+  color: #844c00;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+.gallery-item {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.gallery-item p {
+  padding: 0.5rem;
+  font-size: 0.95rem;
+  color: #444;
+}
+
 /* Map */
 .map-section {
   margin-top: 2rem;
@@ -266,25 +328,74 @@ const mapSrc = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.44738
   margin: 3rem 0 2rem;
 }
 .back-button button {
-  background: #a8621c;
+  background: #f2a65a;
   color: #fff;
   border: none;
   padding: 0.8rem 2rem;
-  font-size: 18px;
+  font-size: clamp(1rem, 2.8vw, 1.3rem);
   border-radius: 10px;
   cursor: pointer;
-  box-shadow: 0 6px 14px rgba(187, 119, 52, 0.6);
+  box-shadow: 0 6px 14px rgba(242, 166, 90, 0.6);
   transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
   font-weight: 600;
 }
 .back-button button:hover {
   background: #d98d42;
   box-shadow: 0 8px 20px rgba(217, 141, 66, 0.8);
-
   transform: translateY(-3px);
 }
 .back-button button:focus {
   outline: none;
   box-shadow: 0 0 0 3px #f2a65a99;
+}
+
+/* 🔥 Event Slider */
+.event-slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin: 1.5rem 0;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+.slider-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+.slide {
+  min-width: 100%;
+  text-align: center;
+  background: #fff;
+}
+.slide img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+.slide p {
+  padding: 0.8rem;
+  font-size: 1rem;
+  background: #f2a65a;
+  color: #fff;
+  margin: 0;
+}
+
+/* จุดบอกตำแหน่ง */
+.slider-dots {
+  text-align: center;
+  margin-top: 0.5rem;
+}
+.slider-dots span {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 6px;
+  background: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.slider-dots span.active {
+  background: #f2a65a;
 }
 </style>
